@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- favicon -->
-    <link rel="shortcut icon" href="/umda/images/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.ico">
     <!-- Site Title -->
     <title>Umda - Innovative Multipurpose Creative Template </title>
     <!-- Google Fonts -->
@@ -30,11 +30,6 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark absolute_header">
         <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img class="etcodes-normal-logo" src="/umda/images/logo-light.png" width="84" height="22" alt="Logo">
-                <img class="etcodes-mobile-logo" src="/umda/images/logo.png" width="84" height="22" alt="Logo">
-
-            </a>
             <button class="navbar-toggler hamburger-menu-btn" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span>toggle menu</span>
@@ -265,7 +260,7 @@
                                         <a class="dropdown-item" href="portfolio-single-small-gallery.html">Small Gallery</a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="portfolio-single-small-images.html">Small Images</a>
+                                        <a class="dropdown-item" href="portfolio-single-small-images/.html">Small Images</a>
                                     </li>
                                     <li>
                                         <a class="dropdown-item" href="portfolio-single-small-masonry.html">Small Masonry</a>
@@ -612,19 +607,19 @@
     </nav>
     <!-- End Header -->
     <!-- main -->
-    <div class="page-container scene-main scene-main--fade_In">
+    <section class="page-container scene-main scene-main--fade_In">
         <!-- Page Title -->
-        <div class="bg-img-71 py-100px py-md-200px mb-80px">
+        <section id="banner">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-3 text-center all-text-content-white">
-                        <h1>Card Blog Three Col</h1>
-                        <p>Aenean lacinia bibendum sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce
-                            dapibus pertinax vix, varius cursus turpis dign issim id aliquam habemus tractatos.</p>
+                        <h2>The Covid Reporter</h2>
+                        <div><strong>Timely information in a rapidly changing world.</strong></div>
+                        <div><strong></strong>Let's see the Covid-19 coronavirus through together.</strong></div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- Blogs -->
         <div class="container">
             <div class="row">
@@ -852,8 +847,8 @@
                 </div>
             </div>
         </footer>
-    </div>
-    <!-- End main -->
+</div>
+<!-- End main -->
 </div>
 <!-- ================================================== -->
 <!-- Placed js files at the end of the document so the pages load faster -->

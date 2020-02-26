@@ -5114,3 +5114,10 @@ screen and (max-height: 800px) {
 }
 
 /** Custom modifications **/
+section#banner {
+    padding-top: 65px;
+    background-color: black;
+    background-image: url(/umda/images/coronavirus-banner-left.jpg), url(/umda/images/coronavirus-banner-right.jpg);
+    background-position: left bottom, right bottom;
+    background-repeat: no-repeat, no-repeat;
+}
