@@ -8,7 +8,7 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="/favicon.ico">
     <!-- Site Title -->
-    <title>Umda - Innovative Multipurpose Creative Template </title>
+    <title>The Covid Reporter: Latest news on the Covid-19 Coronavirus</title>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" rel="stylesheet">
     <!-- Fonts for icons -->
