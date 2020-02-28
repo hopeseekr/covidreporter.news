@@ -1,59 +1,41 @@
 version: '3'
 
 services:
-  blog-server:
-    build: .cloud/docker
-    image: laravel-blog
+  web:
+    image: phpexperts/web:nginx-php7.4-debug
     depends_on:
-      - mysql
-      - mysql-test
+      - db
       - redis
+    links:
+      - db
     volumes:
-      - ./:/application:cached
+      - .:/var/www:delegated
+      - ./docker/web:/etc/nginx/custom:delegated
+    ports:
+      - 80:80
 
   horizon:
-    build: .cloud/docker
-    image: laravel-blog
+    image: phpexperts/web:nginx-php7.4-debug
     command: php artisan horizon
     depends_on:
-      - mysql
+      - db
     volumes:
-      - ./:/application:cached
+      - .:/var/www:delegated
 
-  mysql:
-    image: mysql:8
-    command: --default-authentication-plugin=mysql_native_password
+  db:
+    image: postgres:12.2
+    volumes:
+      - /var/lib/docker/postgresql:/var/lib/postgresql
     ports:
-      - "3306:3306"
+      - 5432:5432
     environment:
-      - MYSQL_ROOT_PASSWORD=secret
-      - MYSQL_DATABASE=laravel-blog
-    volumes:
-      - db-data:/var/lib/mysql:cached
-
-  mysql-test:
-    image: mysql:8
-    command: --default-authentication-plugin=mysql_native_password
-    ports:
-      - "3307:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=secret
-      - MYSQL_DATABASE=testing
-
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "8000:8000"
-    volumes:
-      - .cloud/nginx/nginx.conf:/etc/nginx/conf.d/default.conf:cached
-      - ./:/application:cached
-    depends_on:
-      - blog-server
+      POSTGRES_USER: survivor
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: covidreporter
 
   redis:
-    image: redis:alpine
-    ports:
-      - "6379:6379"
-
-volumes:
-  db-data:
+    image: redis:3.2.6
+    entrypoint:
+      - redis-server
+      - --requirepass {REDIS_PASSWORD}
+      - --loglevel notice

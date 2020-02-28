@@ -58,7 +58,8 @@ $ docker-compose run --rm --no-deps blog-server php artisan key:generate
 $ docker-compose run --rm --no-deps blog-server php artisan horizon:install
 $ docker-compose run --rm --no-deps blog-server php artisan telescope:install
 $ docker-compose run --rm --no-deps blog-server php artisan storage:link
-$ docker run --rm -it -v $(pwd):/app -w /app node yarn
+$ docker run --rm -it -v $(pwd):/app -w /app node npm i
+$ docker run --rm -it -v $(pwd):/app -w /app node npm run dev
 $ docker-compose up -d
 ```
 
