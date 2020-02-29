@@ -7,6 +7,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        @auth
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/settings/password" class="btn btn-danger">Change Password</a>
+                </li>
+            </ul>
+        @endauth
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
             @admin
