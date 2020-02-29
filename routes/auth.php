@@ -9,7 +9,7 @@ Route::prefix('auth')->group(function () {
     Route::get('{provider}/callback', 'Auth\AuthController@handleProviderCallback');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::prefix('settings')->group(function () {
         Route::get('account', 'UserController@edit')->name('users.edit');
         Route::match(['put', 'patch'], 'account', 'UserController@update')->name('users.update');
