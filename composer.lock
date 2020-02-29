@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74edfef273e72d006733f7ff47505410",
+    "content-hash": "a24695427f7961f28197d13e6aeae0b5",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -3047,6 +3047,65 @@
             "time": "2019-12-17T08:18:51+00:00"
         },
         {
+            "name": "sendinblue/api-v3-sdk",
+            "version": "v6.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sendinblue/APIv3-php-library.git",
+                "reference": "986eac4a2732b2cbfea11e88e7c863457f023565"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sendinblue/APIv3-php-library/zipball/986eac4a2732b2cbfea11e88e7c863457f023565",
+                "reference": "986eac4a2732b2cbfea11e88e7c863457f023565",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "guzzlehttp/guzzle": "^6.2",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~1.12",
+                "phpunit/phpunit": "^4.8",
+                "squizlabs/php_codesniffer": "~2.6"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SendinBlue\\Client\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "SendinBlue Developers",
+                    "email": "contact@sendinblue.com",
+                    "homepage": "https://www.sendinblue.com/"
+                }
+            ],
+            "description": "Official SendinBlue provided RESTFul API V3 php library",
+            "homepage": "https://github.com/sendinblue/APIv3-php-library",
+            "keywords": [
+                "api",
+                "php",
+                "sdk",
+                "sendinblue",
+                "swagger"
+            ],
+            "time": "2019-05-27T10:17:08+00:00"
+        },
+        {
             "name": "spatie/db-dumper",
             "version": "2.15.0",
             "source": {
@@ -4991,6 +5050,64 @@
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
             "time": "2019-10-24T08:53:34+00:00"
+        },
+        {
+            "name": "vansteen/laravel-sendinblue",
+            "version": "v1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/vansteen/laravel-sendinblue.git",
+                "reference": "5ea4ef12f55c5a746926c2dee7119ae0789b6cc6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/vansteen/laravel-sendinblue/zipball/5ea4ef12f55c5a746926c2dee7119ae0789b6cc6",
+                "reference": "5ea4ef12f55c5a746926c2dee7119ae0789b6cc6",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5|^6.0",
+                "sendinblue/api-v3-sdk": "*"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0|^4.0",
+                "phpunit/phpunit": "~5.7|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Vansteen\\Sendinblue\\SendinblueServiceProvider"
+                    ],
+                    "aliases": {
+                        "Sendinblue": "Vansteen\\Sendinblue\\Facades\\Sendinblue"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vansteen\\Sendinblue\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Van Steenwinckel",
+                    "email": "code@1234.pm",
+                    "homepage": "https://github.com/vansteen",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a Laravel 5/6 service provider, facade and config file for the SendinBlue's API v3 official PHP library.",
+            "homepage": "https://github.com/vansteen/laravel-sendinblue",
+            "keywords": [
+                "laravel",
+                "sendinblue"
+            ],
+            "time": "2019-09-25T10:19:04+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
