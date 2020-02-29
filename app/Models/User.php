@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\PasswordHelper;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Database\Eloquent\Builder;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\belongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
 class User extends Authenticatable implements MustVerifyEmailContract
@@ -41,6 +43,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /** @var string */
+    private $plaintextPassword;
 
     /**
      * Get the user's fullname titleized.
@@ -140,5 +145,16 @@ class User extends Authenticatable implements MustVerifyEmailContract
     public function roles(): belongsToMany
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
+    }
+
+    /**
+     * Set the user password.
+     *
+     * @param string $password
+     */
+    public function setPasswordAttribute(?string $password): void
+    {
+        $this->plaintextPassword = $password;
+        $this->attributes['password'] = Hash::make($password);
     }
 }
