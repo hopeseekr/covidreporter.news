@@ -7,8 +7,10 @@ use App\Http\Requests\Admin\PostsRequest;
 use App\Models\MediaLibrary;
 use App\Models\Post;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -41,7 +43,7 @@ class PostController extends Controller
     public function create(Request $request): View
     {
         return view('admin.posts.create', [
-            'users' => User::authors()->pluck('name', 'id'),
+            'user' => Auth::user()->username,
             'media' => MediaLibrary::first()->media()->get()->pluck('name', 'id')
         ]);
     }
@@ -51,7 +53,10 @@ class PostController extends Controller
      */
     public function store(PostsRequest $request): RedirectResponse
     {
-        $post = Post::create($request->only(['title', 'content', 'posted_at', 'author_id', 'thumbnail_id']));
+        $post = Post::create($request->only(['title', 'content']) + [
+            'author_id' => Auth::id(),
+            'posted_at' => Carbon::now(),
+        ]);
 
         return redirect()->route('admin.posts.edit', $post)->withSuccess(__('posts.created'));
     }
@@ -61,7 +66,7 @@ class PostController extends Controller
      */
     public function update(PostsRequest $request, Post $post): RedirectResponse
     {
-        $post->update($request->only(['title', 'content', 'posted_at', 'author_id', 'thumbnail_id']));
+        $post->update($request->only(['title', 'content']));
 
         return redirect()->route('admin.posts.edit', $post)->withSuccess(__('posts.updated'));
     }

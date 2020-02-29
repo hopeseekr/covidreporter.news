@@ -11,34 +11,14 @@
     @enderror
 </div>
 
-<div class="form-row">
-    <div class="form-group col-md-6">
-        {!! Form::label('author_id', __('posts.attributes.author')) !!}
-        {!! Form::select('author_id', $users, null, ['class' => 'form-control' . ($errors->has('author_id') ? ' is-invalid' : ''), 'required']) !!}
+{{--<div class="form-group">--}}
+{{--    {!! Form::label('thumbnail_id', __('posts.attributes.thumbnail')) !!}--}}
+{{--    {!! Form::select('thumbnail_id', $media, null, ['placeholder' => __('posts.placeholder.thumbnail'), 'class' => 'form-control' . ($errors->has('thumbnail_id') ? ' is-invalid' : '')]) !!}--}}
 
-        @error('author_id')
-            <span class="invalid-feedback">{{ $message }}</span>
-        @enderror
-    </div>
-
-    <div class="form-group col-md-6">
-        {!! Form::label('posted_at', __('posts.attributes.posted_at')) !!}
-        <input type="datetime-local" name="posted_at" class="form-control {{ ($errors->has('posted_at') ? ' is-invalid' : '') }}" required value="{{ $posted_at }}">
-
-        @error('posted_at')
-            <span class="invalid-feedback">{{ $message }}</span>
-        @enderror
-    </div>
-</div>
-
-<div class="form-group">
-    {!! Form::label('thumbnail_id', __('posts.attributes.thumbnail')) !!}
-    {!! Form::select('thumbnail_id', $media, null, ['placeholder' => __('posts.placeholder.thumbnail'), 'class' => 'form-control' . ($errors->has('thumbnail_id') ? ' is-invalid' : '')]) !!}
-
-    @error('thumbnail_id')
-        <span class="invalid-feedback">{{ $message }}</span>
-    @enderror
-</div>
+{{--    @error('thumbnail_id')--}}
+{{--        <span class="invalid-feedback">{{ $message }}</span>--}}
+{{--    @enderror--}}
+{{--</div>--}}
 
 
 <div class="form-group">

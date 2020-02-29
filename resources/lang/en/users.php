@@ -15,6 +15,7 @@ return [
 
   'attributes' => [
     'name' => 'Name',
+    'username' => 'Username',
     'email' => 'Email',
     'current_password' => 'Current password',
     'password' => 'Password',
@@ -26,6 +27,7 @@ return [
 
   'placeholder' => [
     'name' => 'Your name',
+    'username' => 'Your username',
     'email' => 'Your email',
     'current_password' => 'Your current password',
     'password' => 'Your new password',

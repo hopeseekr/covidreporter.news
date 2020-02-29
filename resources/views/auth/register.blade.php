@@ -7,10 +7,10 @@
 
         {!! Form::open(['route' => 'register', 'role' => 'form', 'method' => 'POST']) !!}
             <div class="form-group">
-                {!! Form::label('name', __('validation.attributes.name'), ['class' => 'control-label']) !!}
-                {!! Form::text('name', old('name'), ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'required', 'autofocus']) !!}
+                {!! Form::label('username', __('validation.attributes.username'), ['class' => 'control-label']) !!}
+                {!! Form::text('username', old('username'), ['class' => 'form-control' . ($errors->has('username') ? ' is-invalid' : ''), 'required', 'autofocus']) !!}
 
-                @error('name')
+                @error('username')
                     <span class="invalid-feedback">{{ $message }}</span>
                 @enderror
             </div>

@@ -50,7 +50,7 @@ class PostTest extends TestCase
             ->post('/admin/posts', $params)
             ->assertStatus(302);
 
-        $params['posted_at'] = now()->second(0)->toDateTimeString();
+        $params['created_at'] = now()->second(0)->toDateTimeString();
 
         $post = Post::first();
 
