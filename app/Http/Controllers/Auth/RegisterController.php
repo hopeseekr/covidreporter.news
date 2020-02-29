@@ -59,6 +59,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data): User
     {
+        throw new \RuntimeException('Registration is closed.');
         return User::create([
             'username' => $data['username'],
             'email' => $data['email'],
