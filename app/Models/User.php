@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Helpers\PasswordHelper;
+use Carbon\Carbon;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Database\Eloquent\Builder;
@@ -13,6 +14,20 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
+/**
+ * @property int    $id
+ * @property string $username
+ * @property string $email
+ * @property string $name
+ * @property string $password
+ * @property string $provider_id
+ * @property string $provider
+ * @property string $api_token
+ * @property Carbon $email_verified_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @property Carbon $password_changed_at
+ */
 class User extends Authenticatable implements MustVerifyEmailContract
 {
     use MustVerifyEmail, Notifiable;
@@ -147,14 +162,14 @@ class User extends Authenticatable implements MustVerifyEmailContract
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
 
-    /**
-     * Set the user password.
-     *
-     * @param string $password
-     */
-    public function setPasswordAttribute(?string $password): void
-    {
-        $this->plaintextPassword = $password;
-        $this->attributes['password'] = Hash::make($password);
-    }
+//    /**
+//     * Set the user password.
+//     *
+//     * @param string $password
+//     */
+//    public function setPasswordAttribute(?string $password): void
+//    {
+//        $this->plaintextPassword = $password;
+//        $this->attributes['password'] = Hash::make($password);
+//    }
 }

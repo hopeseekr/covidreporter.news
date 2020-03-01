@@ -21,7 +21,8 @@ class PostController extends Controller
     public function index(): View
     {
         return view('admin.posts.index', [
-            'posts' => Post::withCount('comments', 'likes')->with('author')->latest()->paginate(50)
+            'posts' => Post::withCount('comments', 'likes')->with('author')->latest()->paginate(50),
+            'expired_password' => Auth::user()->expired_password,
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserPasswordsRequest;
+use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
@@ -35,7 +36,9 @@ class UserPasswordController extends Controller
         ]);
 
         $user->update($request->only('password'));
+        $user->password_changed_at = Carbon::now();
+        $user->save();
 
-        return redirect()->route('users.password')->withSuccess(__('users.password_updated'));
+        return redirect()->route('home')->withSuccess(__('users.password_updated'));
     }
 }
